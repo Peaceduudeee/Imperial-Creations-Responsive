@@ -144,12 +144,12 @@ export function AuthProvider({ children }) {
         const q = query(usersRef, where("phone", "==", phone));
         const snapshot = await getDocs(q);
         if (snapshot.empty) {
-          toast.error("No account found with this phone. Please register.");
+          toast.error("No account found with this phone. Please  register.");
           return;
         }
         const userData = snapshot.docs[0].data();
         if (!userData.email) {
-          toast.error("No email associated with this account. Please register with an email.");
+          toast.error("No email associated with this account. Please  register with an email.");
           return;
         }
         email = userData.email;
@@ -160,7 +160,7 @@ export function AuthProvider({ children }) {
       const q = query(usersRef, where("email", "==", email));
       const snapshot = await getDocs(q);
       if (snapshot.empty) {
-        toast.error("No account found. Please register.");
+        toast.error("No account found. Please  register.");
         return;
       }
 

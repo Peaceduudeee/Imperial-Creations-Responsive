@@ -144,7 +144,7 @@ export default function Checkout() {
   // Razorpay Payment Integration
   const handleRazorpayPayment = async () => {
     if (!isShippingDetailsFilled) {
-      toast.error("Pleaseenter shipping details first!");
+      toast.error("Please enter shipping details first!");
       return;
     }
     if (cart.length === 0) {
@@ -201,7 +201,7 @@ export default function Checkout() {
   // Cash on Delivery Order Placement
   const handleCashOnDelivery = async () => {
     if (!isShippingDetailsFilled) {
-      toast.error("Pleaseenter shipping details first!");
+      toast.error("Please enter shipping details first!");
       return;
     }
     if (cart.length === 0) {

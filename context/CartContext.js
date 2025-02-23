@@ -28,7 +28,7 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = async (product) => {
     if (!user) {
-      toast.error("Pleaselogin first!");
+      toast.error("Please login first!");
       return;
     }
     try {
@@ -52,7 +52,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const updateCartQuantity = async (id, quantity) => {
-    if (!user) return alert("Please login first!");
+    if (!user) return alert("Please  login first!");
     try {
       const cartRef = doc(db, "users", user.uid, "cartItems", id);
       await updateDoc(cartRef, { quantity });
@@ -63,7 +63,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const removeFromCart = async (id) => {
-    if (!user) return alert("Please login first!");
+    if (!user) return alert("Please  login first!");
     try {
       const cartRef = doc(db, "users", user.uid, "cartItems", id);
       await deleteDoc(cartRef);

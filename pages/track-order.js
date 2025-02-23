@@ -12,7 +12,7 @@ export default function TrackOrder() {
 
   const trackOrder = async () => {
     if (!orderId.trim()) {
-      toast.error("Pleaseenter a valid Order ID");
+      toast.error("Please enter a valid Order ID");
       return;
     }
 
@@ -22,7 +22,7 @@ export default function TrackOrder() {
       const orderSnapshot = await getDoc(orderRef);
 
       if (!orderSnapshot.exists()) {
-        toast.error(" Order not found. Please check the Order ID.");
+        toast.error(" Order not found. Please  check the Order ID.");
         setLoading(false);
         return;
       }

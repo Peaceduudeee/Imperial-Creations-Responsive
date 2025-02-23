@@ -52,6 +52,22 @@ export default function Checkout() {
     setShippingInfo({ ...shippingInfo, [e.target.name]: e.target.value });
   };
 
+  // Validate shipping details before proceeding
+  const handleSaveAddressAndProceed = () => {
+    const { fullName, phone, address, city, pincode } = shippingInfo;
+    if (
+      !fullName.trim() ||
+      !phone.trim() ||
+      !address.trim() ||
+      !city.trim() ||
+      !pincode.trim()
+    ) {
+      toast.error("Please fill in all shipping details!");
+      return;
+    }
+    setIsShippingDetailsFilled(true);
+  };
+
   // Dynamically load Razorpay script (if not already loaded)
   const loadRazorpayScript = async () => {
     return new Promise((resolve) => {
@@ -102,7 +118,7 @@ export default function Checkout() {
         const productRef = doc(db, "products", item.id);
         await updateDoc(productRef, { stock: item.remainingStock });
         console.log(
-          `✅ Updated stock for ${item.name}: ${item.remainingStock} left`
+          `Updated stock for ${item.name}: ${item.remainingStock} left`
         );
       }
 
@@ -133,7 +149,7 @@ export default function Checkout() {
       });
 
       setCart([]);
-      toast.success("✅ Order placed successfully! Inventory updated.");
+      toast.success(" Order placed successfully! Inventory updated.");
       router.push(`/order-confirmation?orderId=${orderId}`);
     } catch (error) {
       console.error(" Error placing order:", error);
@@ -293,7 +309,7 @@ export default function Checkout() {
               </div>
               <button
                 type="button"
-                onClick={() => setIsShippingDetailsFilled(true)}
+                onClick={handleSaveAddressAndProceed}
                 className="w-full bg-[#D4AF37] text-white py-3 rounded-lg font-semibold shadow-md hover:bg-[#C09835] transition"
               >
                 Save Address & Proceed

@@ -26,7 +26,7 @@ async function createCartStructure(userId) {
     await cartRef.doc(id).set(data);
   }
 
-  console.log(`✅ Cart structure created for User: ${userId}`);
+  console.log(` Cart structure created for User: ${userId}`);
 }
 
 // 🔹 Function to Create User Wishlist Structure
@@ -42,7 +42,7 @@ async function createWishlistStructure(userId) {
     await wishlistRef.doc(id).set(data);
   }
 
-  console.log(`✅ Wishlist structure created for User: ${userId}`);
+  console.log(` Wishlist structure created for User: ${userId}`);
 }
 
 // 🔹 Run Both Functions

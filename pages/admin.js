@@ -52,7 +52,7 @@ export default function AdminDashboard() {
     try {
       await updateDoc(doc(db, "products", productId), { stock: newStock });
       setProducts(products.map(product => (product.id === productId ? { ...product, stock: newStock } : product)));
-      // toast.success(`✅ Stock updated for ${productId}`);
+      // toast.success(` Stock updated for ${productId}`);
     } catch (error) {
       console.error("Error updating stock:", error);
       toast.error(" Failed to update stock.");

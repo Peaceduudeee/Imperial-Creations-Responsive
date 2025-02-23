@@ -14,7 +14,7 @@ export default function OrderConfirmation() {
         {/* Card container */}
         <div className="bg-white rounded-lg shadow-md w-full max-w-md p-6 text-center">
           <h2 className="text-3xl font-bold text-green-600 mb-4">
-            ✅ Order Placed Successfully!
+             Order Placed Successfully!
           </h2>
           <p className="text-gray-800">
             Thank you for your purchase. Your order ID is:

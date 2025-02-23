@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Apply Custom Font */
+body {
+  font-family: "Playfair Display", serif; /* Use your selected premium font */
+  background-color: #f9f8f6; /* Optional: Soft background color for premium feel */
+  color: #3f383d; /* Match header/footer color */
+}

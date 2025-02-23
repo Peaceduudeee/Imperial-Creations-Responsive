@@ -18,40 +18,62 @@ export default function ProductModal({ product, onClose }) {
         className="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-md"
         onClick={onClose}
       ></div>
-      <div className="relative bg-white rounded-xl p-8 z-50 max-w-4xl w-full mx-4">
+
+      {/* Modal Container - Responsive */}
+      <div className="relative bg-white rounded-xl p-6 sm:p-8 z-50 max-w-4xl w-full mx-4 sm:mx-6 md:mx-8 lg:mx-auto shadow-lg
+                      flex flex-col md:flex-row overflow-y-auto max-h-[90vh]">
+        
         {/* Close Button */}
         <button 
-          className="absolute top-4 right-4 text-gray-600 hover:text-gray-800 text-4xl"
+          className="absolute top-3 right-3 text-gray-600 hover:text-gray-800 text-2xl sm:text-3xl"
           onClick={onClose}
         >
           &times;
         </button>
-        <div className="flex flex-col md:flex-row">
-          <div className="relative w-full md:w-1/2 h-96 rounded-lg overflow-hidden">
-            <Image
-              src={product.image}
-              alt={product.name}
-              fill
-              style={{ objectFit: "cover" }}
-            />
-          </div>
-          <div className="mt-6 md:mt-0 md:ml-8 flex-1">
-            <h2 className="text-4xl font-bold text-[#3f383d]">{product.name}</h2>
-            <p className="text-3xl font-bold text-[#D4AF37] mt-4">₹{product.price}</p>
-            <p className="mt-6 text-lg text-gray-700">{product.description || "No description available."}</p>
-            {product.size && (
-              <p className="mt-4 text-lg"><strong>Size:</strong> {product.size}</p>
-            )}
-            {product.colors && (
-              <p className="mt-4 text-lg"><strong>Colors:</strong> {product.colors}</p>
-            )}
-            <button 
-              onClick={handleAddToCart}
-              className="mt-8 w-full bg-[#D4AF37] text-white py-4 rounded-xl font-bold shadow-lg hover:bg-[#C09835] transition"
-            >
-              Add to Cart
-            </button>
-          </div>
+
+        {/* Product Image */}
+        <div className="relative w-full md:w-1/2 h-60 sm:h-72 md:h-96 rounded-lg overflow-hidden">
+          <Image
+            src={product.image}
+            alt={product.name}
+            fill
+            style={{ objectFit: "cover" }}
+            className="rounded-lg"
+          />
+        </div>
+
+        {/* Product Info Section */}
+        <div className="mt-4 md:mt-0 md:ml-6 flex-1 flex flex-col justify-center text-center md:text-left">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#3f383d]">
+            {product.name}
+          </h2>
+          <p className="text-xl sm:text-2xl font-bold text-[#D4AF37] mt-2">
+            ₹{product.price}
+          </p>
+          <p className="mt-3 text-gray-700 text-sm sm:text-base">
+            {product.description || "No description available."}
+          </p>
+          
+          {/* Additional Info */}
+          {product.size && (
+            <p className="mt-2 text-gray-700 text-sm sm:text-base">
+              <strong>Size:</strong> {product.size}
+            </p>
+          )}
+          {product.colors && (
+            <p className="mt-2 text-gray-700 text-sm sm:text-base">
+              <strong>Colors:</strong> {product.colors}
+            </p>
+          )}
+
+          {/* Add to Cart Button */}
+          <button 
+            onClick={handleAddToCart}
+            className="mt-6 w-full bg-[#D4AF37] text-white py-3 sm:py-4 rounded-md font-bold shadow-md
+                       hover:bg-[#C09835] transition text-sm sm:text-base"
+          >
+            Add to Cart
+          </button>
         </div>
       </div>
     </div>
